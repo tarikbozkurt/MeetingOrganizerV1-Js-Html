@@ -1,0 +1,155 @@
+body {}
+
+body {
+    background: #dd5e89;
+    background: -webkit-linear-gradient(to left, #dd5e89, #f7bb97);
+    background: linear-gradient(to left, #dd5e89, #f7bb97);
+    min-height: 100vh;
+}
+
+.mainPage {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.card {
+    width: 250px;
+    background-color: #626262;
+    border-radius: 12px;
+    /*	color: #2E7D32;*/
+    box-shadow: black 5px 5px 9px 0px;
+}
+
+.card:hover {
+    box-shadow: rgb(252, 252, 252) 5px 5px 9px 0px;
+}
+
+.text {
+
+    color: #d3d3d3;
+}
+
+.images img {
+
+    margin-right: -13px;
+}
+
+.btn i {
+
+    font-size: 13px;
+}
+
+#meetingCard {
+    margin-top: 30px;
+    margin-left: 160px;
+    padding-left: 150px;
+}
+
+.sideMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: rgb(252, 102, 102);
+    box-shadow: black 4px 5px 12px 0px;
+    z-index: 2;
+    border-radius: 25px;
+}
+
+.menu {
+    height: 50%;
+    width: 100%;
+    margin-top: 100px;
+    background-color: #565656;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 80px;
+}
+
+.button {
+    height: 45px;
+    width: 200px;
+    background-color: #f7f7f7;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+.button:hover {
+    box-shadow: #9c5d5d -1px 1px 10px 2px;
+}
+
+.button span {
+    font-size: 20px;
+    /* padding: 10px; */
+    /* margin-left: 20px; */
+}
+
+
+.giris {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    font-family: inherit;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.listMeetings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    position: static;
+    margin-left: 200px;
+    font-family: monospace;
+    font-size: 35px;
+    background-color: teal;
+    margin-top: 100px;
+}
+
+@media only screen and (max-width:760px) {
+
+    .sideMenu {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100px;
+    }
+
+
+    #meetingCard {
+        margin-top: 150px;
+        margin-left: 50px;
+        padding-left: 50px;
+    }
+}
+
+@media only screen and (max-width:368px) {
+
+
+    #meetingCard {
+        margin-top: 150px;
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MeetingOrganizer</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" href="MeetingCss.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<div class="bildiri"
+		style="position:fixed;margin-left:250px;padding-left:200px; background-color: black; height: 110px;width: 100%;z-index: 3;">
+		<h6 style="font-size:35px;color:whitesmoke;">Bu site şuan Django RestAPI den verileri çekiyor. Site üzerinde ki
+			değişiklikler
+			buraya da yansımaktadır.
+		</h6><br>
+		<h6 style="font-size:25px;color:whitesmoke;">Şu an 'GET' tüm toplantıları listelemektedir. Diğer işlemler Js
+			üzerinden şu an için kodlanmadı.
+		</h6>
+
+	</div>
+
+	<div class="sideMenu">
+		<div class="giris">
+			<div class="title"><span>Meeting Organizer </span></div>
+		</div>
+		<div class="menu">
+
+			<div class="button">
+				<span> Toplantı Oluştur </span>
+			</div>
+
+			<div class="button">
+				<span> Toplantı Güncelle </span>
+			</div>
+			<div class="button">
+				<span> Toplantı Sil </span>
+			</div>
+			<div class="button">
+
+			</div>
+		</div>
+	</div>
+
+	<section class="mainPage">
+		<!-- bu kısım tüm toplantıları listeler -->
+
+		<div class="listMeetings">
+			<div class="listText">Toplantılar</div>
+		</div>
+
+		<div id="meetingCard">
+			<div id='meetingCardRow' class="row">
+
+
+			</div>
+
+
+		</div>
+
+
+		<div class="listMeetings">
+			<div class="listText">--</div>
+		</div>
+
+		<!-- END-->
+
+
+
+		<!-- bu kısım yeni TOPLANTILARI ekler -->
+		<div class="listMeetings">
+			<div class="listText">Toplantı Ekle</div>
+		</div>
+
+		<div class="meetingAdd" style="margin-left:188px;background-color: antiquewhite; border-radius: 25px;">
+			<form action="" class="row">
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="title" placeholder="toplantı başlığı" />
+
+				</div>
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="tarih" placeholder="tarihi" />
+
+				</div>
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="baslangicT" placeholder="başlangıç saati" />
+
+				</div>
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="bitisT" placeholder="Bitiş Saati" />
+
+				</div>
+
+				<div class="col text-end">
+					<a class="btn btn-success mt-2 mb-3" onclick="createMeeting()">Toplantı Oluştur</a>
+					<a class="btn btn-primary" onclick="refreshData()">Yenile</a>
+				</div>
+			</form>
+		</div>
+
+
+		<div class="listMeetings">
+			<div class="listText">--</div>
+		</div>
+
+		<!-- END -->
+
+		<!-- bu kısım TOPLANTI günceller ekler -->
+		<div class="listMeetings">
+			<div class="listText">Toplantı Güncelle</div>
+		</div>
+
+		<div class="meetingUpdate" style="margin-left:188px;background-color: antiquewhite; border-radius: 25px;">
+			<form action="" class="row">
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="title" placeholder="toplantı başlığı" />
+
+				</div>
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="tarih" placeholder="tarihi" />
+
+				</div>
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="baslangicT" placeholder="başlangıç saati" />
+
+				</div>
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="bitisT" placeholder="Bitiş Saati" />
+
+				</div>
+
+				<div class="col text-end">
+					<a class="btn btn-success mt-2 mb-3" onclick="createMeeting()">Toplantıyı Güncelle</a>
+					<a class="btn btn-primary" onclick="refreshData()">Yenile</a>
+				</div>
+			</form>
+		</div>
+
+		<div class="listMeetings">
+			<div class="listText">--</div>
+		</div>
+		<!-- END -->
+
+		<!-- bu kısım TOPLANTI siler ekler -->
+		<div class="listMeetings">
+			<div class="listText">Toplantı sil</div>
+		</div>
+
+		<div class="meetingDelete" style="margin-left:188px;background-color: antiquewhite; border-radius: 25px;">
+			<form action="" class="row">
+				<div class="col justify-content-center mb-5">
+					<input type="text" class="form-control" type="text" id="title" placeholder="toplantı başlığı" />
+
+				</div>
+
+				<div class="col text-end">
+					<a class="btn btn-success mt-2 mb-3" onclick="createMeeting()">Toplantıyı Sil</a>
+					<a class="btn btn-primary" onclick="refreshData()">Yenile</a>
+				</div>
+			</form>
+		</div>
+
+
+		<div class="listMeetings">
+			<div class="listText">--</div>
+		</div>
+		<!-- END -->
+
+	</section>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+		integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="MeetingOrganizerJs.js"></script>
+</body>
+
+</html>
